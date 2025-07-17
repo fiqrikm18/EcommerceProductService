@@ -68,3 +68,9 @@ run-migration:
 
 rollback-migration:
 	migrate -database ${POSTGRES_MIGRATION_DSN} -path db/migrations down
+
+docker-run:
+	docker compose up -d
+
+docker-down:
+	docker compose down

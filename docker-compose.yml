@@ -1,0 +1,49 @@
+services:
+  product-service:
+    build: .
+    container_name: product-service
+    depends_on:
+      - postgres-db
+    env_file:
+      - .env
+    ports:
+      - "${APPLICATION_PORT}:${APPLICATION_PORT}"
+    environment:
+      - "APPLICATION_PORT=${APPLICATION_PORT}"
+    networks:
+      - product-service-network
+
+  postgres-db:
+    image: postgres:16
+    restart: always
+    container_name: postgres-db
+    ports:
+      - "5432:5432"
+    env_file:
+      - .env
+    networks:
+      - product-service-network
+    environment:
+      POSTGRES_DB: ecommerce
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - data:/var/lib/postgresql/data
+
+  migrate:
+    image: migrate/migrate
+    networks:
+      - product-service-network
+    env_file:
+      - .env
+    depends_on:
+      - postgres-db
+    volumes:
+      - ./db/migrations:/migrations
+    command: [ "-path", "/migrations", "-database",  "${POSTGRES_MIGRATION_DSN}", "up", "3" ]
+
+volumes:
+  data:
+
+networks:
+  product-service-network:

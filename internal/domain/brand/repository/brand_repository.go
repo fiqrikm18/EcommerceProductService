@@ -33,9 +33,9 @@ func NewBrandRepository(ctx context.Context, dbProvider *config.DatabaseConfigur
 	}
 }
 
-func (r *BrandRepository) Count() (int64, error) {
+func (repo *BrandRepository) Count() (int64, error) {
 	var count int64
-	if err := r.dbProvider.WithContext(r.ctx).Model(&entity.Brand{}).Count(&count).Error; err != nil {
+	if err := repo.dbProvider.WithContext(repo.ctx).Model(&entity.Brand{}).Count(&count).Error; err != nil {
 		return 0, err
 	}
 

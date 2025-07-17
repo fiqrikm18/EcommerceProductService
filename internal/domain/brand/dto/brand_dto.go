@@ -5,7 +5,7 @@ type CreateBrandDTO struct {
 }
 
 type UpdateBrandDTO struct {
-	ID   int64  `json:"id" form:"id" param:"id" query:"id"`
+	ID   int64  `json:"id" form:"id" param:"id" query:"id" swaggerignore:"true"`
 	Name string `json:"name" form:"name"`
 }
 

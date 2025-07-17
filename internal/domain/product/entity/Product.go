@@ -11,6 +11,9 @@ type Product struct {
 	UpdatedAt time.Time
 	DeletedAt gorm.DeletedAt
 	Name      string
+	Price     int
+	Qty       int
+	BrandId   int
 }
 
 func (Product) TableName() string {

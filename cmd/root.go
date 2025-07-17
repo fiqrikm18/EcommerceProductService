@@ -23,6 +23,7 @@ import (
 
 	_ "ecommerce/docs"
 	"github.com/swaggo/echo-swagger"
+	_ "github.com/swaggo/files"
 )
 
 var rootCmd = &cobra.Command{

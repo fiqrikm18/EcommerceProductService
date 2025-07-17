@@ -4,6 +4,7 @@ This is ad simple product service api using echo and postgres as database.
 ## Table Of Content
 - [Pre-requisite](#pre-requisite)
 - [How To Install](#how-to-install)
+- [Database Backup Script](#database-backup-script)
 - [Scripts](#scripts)
 - [Project Structure](#project-structure)
 
@@ -120,6 +121,9 @@ make docker-run
 ```
 make docker-down
 ```
+
+## Database Backup Script
+You can found database backup script [here](db/backups/ecommerce.sql)
 
 ## Project Structure
 ```

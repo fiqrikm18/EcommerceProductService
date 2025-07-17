@@ -8,8 +8,8 @@ require (
 	github.com/spf13/cobra v1.9.1
 	github.com/spf13/viper v1.20.1
 	github.com/swaggo/echo-swagger v1.4.1
+	github.com/swaggo/files v1.0.1
 	github.com/swaggo/swag v1.16.4
-	go.uber.org/mock v0.5.2
 	gorm.io/driver/postgres v1.6.0
 	gorm.io/gorm v1.30.0
 )

@@ -44,9 +44,6 @@ govulncheck:
 .PHONY: verify
 verify: deps generate-docs generate-mock golangci-lint gosec govulncheck dev
 
-generate-docs:
-	swag init -g cmd/app/main.go
-
 .PHONY: test
 test:
 	@echo "##### Running tests"
@@ -55,6 +52,9 @@ test:
 .PHONY: dev
 dev:
 	go run ${APPLICATION_ROOT_CMD} --port ${APPLICATION_PORT}
+
+generate-docs:
+	swag init -g cmd/app/main.go
 
 generate-mock:
 	@echo "##### Generating mock"
